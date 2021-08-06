@@ -1,0 +1,49 @@
+clc;
+clear;
+cla;
+%sine wave generation
+time = linspace(0,10,30000);
+timerangehorizontal=1;
+timerangevertical=6;
+%1 degree=pi/180 radians
+%1 degree=0.01745329252 radians
+%90 degrees = 0.017453 x 90=pi/2
+%we need to feed mathematical values
+%we take input in degrees but convert it to 
+%radians during plotting 
+sineph=0.01745329252*90;
+sineamp=5;
+sinefre=2;
+sinesignal=sineamp*sin((2*pi*sinefre*time)+sineph);
+plot(time,sinesignal);
+xlabel('Time');
+ylabel('Amplitude');
+xlim([0 timerangehorizontal]);
+ylim([-timerangevertical timerangevertical]);
+hold on;
+%square wave generation
+squareduty=50;
+squareamp=5;
+squarefre=2;
+squaresignal=squareamp*square(2*pi*squarefre*time,squareduty);
+plot(time,squaresignal);
+xlim([0 timerangehorizontal]);
+ylim([-timerangevertical timerangevertical]);
+hold on;
+%triangular wave generation
+triangleamp=5;
+trianglefre=2;
+trianglesignal=triangleamp*sawtooth(2*pi*trianglefre*time,0.5);
+plot(time,trianglesignal);
+xlim([0 timerangehorizontal]);
+ylim([-timerangevertical timerangevertical]);
+hold on;
+%sawtooth wave generation 
+sawamp=5;
+sawfre=2;
+sawmaxloc=0.9;
+sawtoothsignal=sawamp*sawtooth(2*pi*sawfre*time,sawmaxloc);
+plot(time,sawtoothsignal);
+xlim([0 timerangehorizontal]);
+ylim([-timerangevertical timerangevertical]);
+hold on;
